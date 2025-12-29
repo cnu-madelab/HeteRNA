@@ -1,7 +1,34 @@
+## Overview
+Heterogeneous ceRNA Network를 활용한 GNN 기반 circRNA–질병 연관성(Link Prediction) 예측
+circRNA, miRNA, lncRNA, disease, gene 간의 이질적 생물학적 상호작용을 그래프로 모델링
+Negative set 없이 link prediction을 수행하는 코드임
+
+모델 학습 및 평가는 Runner 클래스를 중심으로 구성되어 있으며, 데이터 로딩, 그래프 구성, 모델 초기화, 학습, 검증, 테스트, 성능 평가가 하나의 일관된 파이프라인으로 관리됨.
+ink prediction 성능은 MRR(Mean Reciprocal Rank)을 기준으로 평가되며, 동시에 circRNA–disease 예측 결과를 이진 분류 관점에서 해석하기 위해 Precision, Recall, F1-score, ROC-AUC, AUPR 등의 지표도 함께 계산됨
+
+학습 과정에서는 (source node, relation)을 입력으로 받아, 해당 source node가 연결될 가능성이 있는 모든 object node에 대한 확률 분포를 예측함. 
+이를 통해 circRNA–disease 관계를 link prediction 문제로 다루며, 생물학적으로 정의하기 어려운 negative set을 생성하지 않고도 예측이 가능하도록 설계됨
+
 
 ### Dataset:
 
 - KGRACDA dataset2 train.txt , test.txt , valid.txt
+- 기존 KGRACDA 데이터셋을 기반으로 확장된 ceRNA network 구축 
+- 핵심 lncRNA로 MALAT1을 중심으로 gene 관계 추가 
+
+총 relation 수: 25,617
+circRNA–disease: 1,339
+miRNA–disease: 10,154
+lncRNA–disease: 3,280
+circRNA–miRNA: 1,226
+miRNA–lncRNA: 9,506
+lncRNA–gene: 94
+lncRNA–ceRNA: 18 
+
+Train / Valid / Test split:
+Train: 25,188
+Valid: 1,398
+Test: 1,398
 
 ### Training model:
 ```shell
