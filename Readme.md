@@ -10,10 +10,10 @@ Link prediction 성능은 MRR(Mean Reciprocal Rank)을 기준으로 평가되며
 이를 통해 circRNA–disease 관계를 link prediction 문제로 다루며, 생물학적으로 정의하기 어려운 negative set을 생성하지 않고도 예측이 가능하도록 설계됨
 
 ### Key feature
--Heterogeneous ceRNA Network 기반 GNN circRNA–질병 link prediction
--circRNA·miRNA·lncRNA·disease·gene 간 이질적 상호작용 그래프 모델링
--Negative set 없이 link prediction 방식으로 연관성 예측
--Runner 클래스 중심의 데이터 로딩–학습–검증–테스트–평가 파이프라인
+- Heterogeneous ceRNA Network 기반 GNN circRNA–질병 link prediction
+- circRNA·miRNA·lncRNA·disease·gene 간 이질적 상호작용 그래프 모델링
+- Negative set 없이 link prediction 방식으로 연관성 예측
+- Runner 클래스 중심의 데이터 로딩–학습–검증–테스트–평가 파이프라인
 
 
 
